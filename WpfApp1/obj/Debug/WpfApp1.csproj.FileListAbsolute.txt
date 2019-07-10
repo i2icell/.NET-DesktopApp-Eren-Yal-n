@@ -30,3 +30,5 @@ C:\Users\PC\Desktop\STAJ\utility\WpfApp1\WpfApp1\bin\Debug\Resources\leave.png
 C:\Users\PC\Desktop\STAJ\utility\WpfApp1\WpfApp1\bin\Debug\Resources\paketler.png
 C:\Users\PC\Desktop\STAJ\utility\WpfApp1\WpfApp1\bin\Debug\Resources\home.png
 C:\Users\PC\Desktop\STAJ\utility\WpfApp1\WpfApp1\bin\Debug\Resources\i.png
+C:\Users\PC\Desktop\STAJ\utility\WpfApp1\WpfApp1\obj\Debug\ForgotPasswordPage.g.cs
+C:\Users\PC\Desktop\STAJ\utility\WpfApp1\WpfApp1\obj\Debug\ForgotPasswordPage.baml

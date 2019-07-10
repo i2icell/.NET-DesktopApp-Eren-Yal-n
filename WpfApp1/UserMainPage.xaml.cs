@@ -23,7 +23,6 @@ namespace WpfApp1
         
         public UserMainPage()
         {
-
             InitializeComponent();
         }
 
@@ -33,10 +32,12 @@ namespace WpfApp1
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    Application.Current.Shutdown();
+                    MainWindow wd = new MainWindow();
+                    Application.Current.Windows[0].Close();
+                    wd.ShowDialog();
                     break;
                 case MessageBoxResult.No:
-                    
+
                     break;
             }
         }

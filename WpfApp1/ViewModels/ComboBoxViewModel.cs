@@ -50,7 +50,7 @@ namespace WpfApp1.ViewModels
 
             years = new List<string>();
 
-            for (int i = 1869; i < 2007; i++)
+            for (int i = 2006; i >= 1869; i--)
             {
                 years.Add(i.ToString());
             }

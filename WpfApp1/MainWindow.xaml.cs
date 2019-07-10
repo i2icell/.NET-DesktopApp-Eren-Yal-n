@@ -42,6 +42,8 @@ namespace WpfApp1
             {
                 UserMainPage pg = new UserMainPage();
                 pg.phoneNumLabel.Content = phoneNum.Text;
+                pg.nameLabel.Content = client.showProfile(phoneNum.Text)[0] + " " + client.showProfile(phoneNum.Text)[1];
+                pg.packageLabel.Content = client.showProfile(phoneNum.Text)[3];
                 pg.internetLabel.Content = client.getBalances(phoneNum.Text)[0];
                 pg.callLabel.Content = client.getBalances(phoneNum.Text)[1];
                 pg.smsLabel.Content = client.getBalances(phoneNum.Text)[2];
@@ -54,6 +56,12 @@ namespace WpfApp1
 
 
 
+        }
+
+        private void forgotPassBtn(object sender, RoutedEventArgs e)
+        {
+            ForgotPasswordPage pg = new ForgotPasswordPage();
+            this.Content = pg;
         }
     }
 }

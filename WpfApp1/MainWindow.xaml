@@ -79,7 +79,7 @@
         <PasswordBox Name="password" Grid.Column="3" HorizontalContentAlignment="Center" Grid.Row="5" VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="260" Margin="0,55,0,9" FontSize="20px" />
 
         <Button Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="170" Height="40" FontSize="20" Click="loginBtnFunction"> Giriş </Button>
-        <Button Grid.Column="4" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" Width="170" Height="40" FontSize="20">Şifremi Unuttum</Button>
+        <Button Grid.Column="4" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" Width="170" Height="40" FontSize="20" Click="forgotPassBtn">Şifremi Unuttum</Button>
 
         <Button Content="Hesabın yok mu? Hemen Kaydol" Foreground="#3fade3" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" Grid.Row="5" Margin="0,0,10,10" Click="toCreateAccountPage" >
             <Button.Template>

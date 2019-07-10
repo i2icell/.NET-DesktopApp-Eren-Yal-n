@@ -1,172 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:ax26="http://ws.apache.org/namespaces/axis2/enum" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ax21="http://ServicesPackage/xsd" xmlns:ax23="http://sql.java/xsd" xmlns:ns="http://ServicesPackage" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax24="http://ws.apache.org/namespaces/axis2/map" targetNamespace="http://ServicesPackage" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://ServicesPackage" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://ServicesPackage" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:documentation>
 		Please Type your service description here
 	</wsdl:documentation>
   <wsdl:types>
-    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ws.apache.org/namespaces/axis2/enum">
-      <xs:simpleType name="java.sql.RowIdLifetime">
-        <xs:restriction base="xs:string">
-          <xs:enumeration value="ROWID_UNSUPPORTED" />
-          <xs:enumeration value="ROWID_VALID_OTHER" />
-          <xs:enumeration value="ROWID_VALID_SESSION" />
-          <xs:enumeration value="ROWID_VALID_TRANSACTION" />
-          <xs:enumeration value="ROWID_VALID_FOREVER" />
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:schema>
-    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ServicesPackage/xsd">
-      <xs:complexType name="Connector">
-        <xs:sequence />
-      </xs:complexType>
-    </xs:schema>
-    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://sql.java/xsd">
-      <xs:complexType name="Connection" abstract="true">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="autoCommit" type="xs:boolean" />
-          <xs:element minOccurs="0" name="catalog" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="clientInfo" nillable="true" type="ax24:map1" />
-          <xs:element minOccurs="0" name="closed" type="xs:boolean" />
-          <xs:element minOccurs="0" name="holdability" type="xs:int" />
-          <xs:element minOccurs="0" name="metaData" nillable="true" type="ax23:DatabaseMetaData" />
-          <xs:element minOccurs="0" name="networkTimeout" type="xs:int" />
-          <xs:element minOccurs="0" name="readOnly" type="xs:boolean" />
-          <xs:element minOccurs="0" name="schema" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="transactionIsolation" type="xs:int" />
-          <xs:element minOccurs="0" name="typeMap" nillable="true" type="ax24:map2" />
-          <xs:element minOccurs="0" name="warnings" nillable="true" type="ax23:SQLWarning" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="DatabaseMetaData" abstract="true">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="JDBCMajorVersion" type="xs:int" />
-          <xs:element minOccurs="0" name="JDBCMinorVersion" type="xs:int" />
-          <xs:element minOccurs="0" name="SQLKeywords" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="SQLStateType" type="xs:int" />
-          <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="catalogAtStart" type="xs:boolean" />
-          <xs:element minOccurs="0" name="catalogSeparator" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="catalogTerm" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="catalogs" nillable="true" type="ax23:ResultSet" />
-          <xs:element minOccurs="0" name="clientInfoProperties" nillable="true" type="ax23:ResultSet" />
-          <xs:element minOccurs="0" name="connection" nillable="true" type="ax23:Connection" />
-          <xs:element minOccurs="0" name="databaseMajorVersion" type="xs:int" />
-          <xs:element minOccurs="0" name="databaseMinorVersion" type="xs:int" />
-          <xs:element minOccurs="0" name="databaseProductName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="databaseProductVersion" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="defaultTransactionIsolation" type="xs:int" />
-          <xs:element minOccurs="0" name="driverMajorVersion" type="xs:int" />
-          <xs:element minOccurs="0" name="driverMinorVersion" type="xs:int" />
-          <xs:element minOccurs="0" name="driverName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="driverVersion" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="extraNameCharacters" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="identifierQuoteString" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="maxBinaryLiteralLength" type="xs:int" />
-          <xs:element minOccurs="0" name="maxCatalogNameLength" type="xs:int" />
-          <xs:element minOccurs="0" name="maxCharLiteralLength" type="xs:int" />
-          <xs:element minOccurs="0" name="maxColumnNameLength" type="xs:int" />
-          <xs:element minOccurs="0" name="maxColumnsInGroupBy" type="xs:int" />
-          <xs:element minOccurs="0" name="maxColumnsInIndex" type="xs:int" />
-          <xs:element minOccurs="0" name="maxColumnsInOrderBy" type="xs:int" />
-          <xs:element minOccurs="0" name="maxColumnsInSelect" type="xs:int" />
-          <xs:element minOccurs="0" name="maxColumnsInTable" type="xs:int" />
-          <xs:element minOccurs="0" name="maxConnections" type="xs:int" />
-          <xs:element minOccurs="0" name="maxCursorNameLength" type="xs:int" />
-          <xs:element minOccurs="0" name="maxIndexLength" type="xs:int" />
-          <xs:element minOccurs="0" name="maxLogicalLobSize" type="xs:long" />
-          <xs:element minOccurs="0" name="maxProcedureNameLength" type="xs:int" />
-          <xs:element minOccurs="0" name="maxRowSize" type="xs:int" />
-          <xs:element minOccurs="0" name="maxSchemaNameLength" type="xs:int" />
-          <xs:element minOccurs="0" name="maxStatementLength" type="xs:int" />
-          <xs:element minOccurs="0" name="maxStatements" type="xs:int" />
-          <xs:element minOccurs="0" name="maxTableNameLength" type="xs:int" />
-          <xs:element minOccurs="0" name="maxTablesInSelect" type="xs:int" />
-          <xs:element minOccurs="0" name="maxUserNameLength" type="xs:int" />
-          <xs:element minOccurs="0" name="numericFunctions" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="procedureTerm" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="readOnly" type="xs:boolean" />
-          <xs:element minOccurs="0" name="resultSetHoldability" type="xs:int" />
-          <xs:element minOccurs="0" name="rowIdLifetime" nillable="true" type="ax26:java.sql.RowIdLifetime" />
-          <xs:element minOccurs="0" name="schemaTerm" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="schemas" nillable="true" type="ax23:ResultSet" />
-          <xs:element minOccurs="0" name="searchStringEscape" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="stringFunctions" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="systemFunctions" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="tableTypes" nillable="true" type="ax23:ResultSet" />
-          <xs:element minOccurs="0" name="timeDateFunctions" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="typeInfo" nillable="true" type="ax23:ResultSet" />
-          <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="ResultSet" abstract="true">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="afterLast" type="xs:boolean" />
-          <xs:element minOccurs="0" name="beforeFirst" type="xs:boolean" />
-          <xs:element minOccurs="0" name="closed" type="xs:boolean" />
-          <xs:element minOccurs="0" name="concurrency" type="xs:int" />
-          <xs:element minOccurs="0" name="cursorName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="fetchDirection" type="xs:int" />
-          <xs:element minOccurs="0" name="fetchSize" type="xs:int" />
-          <xs:element minOccurs="0" name="first" type="xs:boolean" />
-          <xs:element minOccurs="0" name="holdability" type="xs:int" />
-          <xs:element minOccurs="0" name="last" type="xs:boolean" />
-          <xs:element minOccurs="0" name="metaData" nillable="true" type="ax23:ResultSetMetaData" />
-          <xs:element minOccurs="0" name="row" type="xs:int" />
-          <xs:element minOccurs="0" name="statement" nillable="true" type="ax23:Statement" />
-          <xs:element minOccurs="0" name="type" type="xs:int" />
-          <xs:element minOccurs="0" name="warnings" nillable="true" type="ax23:SQLWarning" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="ResultSetMetaData" abstract="true">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="columnCount" type="xs:int" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="Statement" abstract="true">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="closeOnCompletion" type="xs:boolean" />
-          <xs:element minOccurs="0" name="closed" type="xs:boolean" />
-          <xs:element minOccurs="0" name="connection" nillable="true" type="ax23:Connection" />
-          <xs:element minOccurs="0" name="fetchDirection" type="xs:int" />
-          <xs:element minOccurs="0" name="fetchSize" type="xs:int" />
-          <xs:element minOccurs="0" name="generatedKeys" nillable="true" type="ax23:ResultSet" />
-          <xs:element minOccurs="0" name="largeMaxRows" type="xs:long" />
-          <xs:element minOccurs="0" name="largeUpdateCount" type="xs:long" />
-          <xs:element minOccurs="0" name="maxFieldSize" type="xs:int" />
-          <xs:element minOccurs="0" name="maxRows" type="xs:int" />
-          <xs:element minOccurs="0" name="moreResults" type="xs:boolean" />
-          <xs:element minOccurs="0" name="poolable" type="xs:boolean" />
-          <xs:element minOccurs="0" name="queryTimeout" type="xs:int" />
-          <xs:element minOccurs="0" name="resultSet" nillable="true" type="ax23:ResultSet" />
-          <xs:element minOccurs="0" name="resultSetConcurrency" type="xs:int" />
-          <xs:element minOccurs="0" name="resultSetHoldability" type="xs:int" />
-          <xs:element minOccurs="0" name="resultSetType" type="xs:int" />
-          <xs:element minOccurs="0" name="updateCount" type="xs:int" />
-          <xs:element minOccurs="0" name="warnings" nillable="true" type="ax23:SQLWarning" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="SQLException">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="SQLState" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="errorCode" type="xs:int" />
-          <xs:element minOccurs="0" name="nextException" nillable="true" type="ax23:SQLException" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="SQLWarning">
-        <xs:complexContent mixed="false">
-          <xs:extension base="ax23:SQLException">
-            <xs:sequence>
-              <xs:element minOccurs="0" name="nextWarning" nillable="true" type="ax23:SQLWarning" />
-            </xs:sequence>
-          </xs:extension>
-        </xs:complexContent>
-      </xs:complexType>
-    </xs:schema>
-    <xs:schema xmlns:ax28="http://sql.java/xsd" xmlns:ax27="http://ws.apache.org/namespaces/axis2/enum" xmlns:ax22="http://ServicesPackage/xsd" xmlns:ax25="http://ws.apache.org/namespaces/axis2/map" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ServicesPackage">
-      <xs:import namespace="http://ServicesPackage/xsd" />
-      <xs:import namespace="http://ws.apache.org/namespaces/axis2/map" />
-      <xs:import namespace="http://ws.apache.org/namespaces/axis2/enum" />
-      <xs:import namespace="http://sql.java/xsd" />
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ServicesPackage">
+      <xs:element name="showProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="inputPhoneNumber" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="showProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="login">
         <xs:complexType>
           <xs:sequence>
@@ -182,30 +34,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="getConnector">
-        <xs:complexType>
-          <xs:sequence />
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="getConnectorResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Connector" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="getConnection">
-        <xs:complexType>
-          <xs:sequence />
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="getConnectionResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="return" nillable="true" type="ax28:Connection" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
       <xs:element name="getBalances">
         <xs:complexType>
           <xs:sequence>
@@ -216,7 +44,7 @@
       <xs:element name="getBalancesResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="return" type="xs:int" />
+            <xs:element maxOccurs="unbounded" name="return" type="xs:double" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -257,42 +85,7 @@
         </xs:complexType>
       </xs:element>
     </xs:schema>
-    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ws.apache.org/namespaces/axis2/map">
-      <xs:complexType name="entry1">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="key" nillable="true" type="xs:anyType" />
-          <xs:element minOccurs="0" name="value" nillable="true" type="xs:anyType" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="map1">
-        <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="entry" nillable="true" type="ax24:entry1" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="entry2">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="map2">
-        <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="entry" nillable="true" type="ax24:entry2" />
-        </xs:sequence>
-      </xs:complexType>
-    </xs:schema>
   </wsdl:types>
-  <wsdl:message name="getConnectorRequest">
-    <wsdl:part name="parameters" element="ns:getConnector" />
-  </wsdl:message>
-  <wsdl:message name="getConnectorResponse">
-    <wsdl:part name="parameters" element="ns:getConnectorResponse" />
-  </wsdl:message>
-  <wsdl:message name="getConnectionRequest">
-    <wsdl:part name="parameters" element="ns:getConnection" />
-  </wsdl:message>
-  <wsdl:message name="getConnectionResponse">
-    <wsdl:part name="parameters" element="ns:getConnectionResponse" />
-  </wsdl:message>
   <wsdl:message name="getBalancesRequest">
     <wsdl:part name="parameters" element="ns:getBalances" />
   </wsdl:message>
@@ -311,6 +104,12 @@
   <wsdl:message name="loginResponse">
     <wsdl:part name="parameters" element="ns:loginResponse" />
   </wsdl:message>
+  <wsdl:message name="showProfileRequest">
+    <wsdl:part name="parameters" element="ns:showProfile" />
+  </wsdl:message>
+  <wsdl:message name="showProfileResponse">
+    <wsdl:part name="parameters" element="ns:showProfileResponse" />
+  </wsdl:message>
   <wsdl:message name="changePasswordRequest">
     <wsdl:part name="parameters" element="ns:changePassword" />
   </wsdl:message>
@@ -318,14 +117,6 @@
     <wsdl:part name="parameters" element="ns:changePasswordResponse" />
   </wsdl:message>
   <wsdl:portType name="ServicesPortType">
-    <wsdl:operation name="getConnector">
-      <wsdl:input wsaw:Action="urn:getConnector" message="ns:getConnectorRequest" />
-      <wsdl:output wsaw:Action="urn:getConnectorResponse" message="ns:getConnectorResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="getConnection">
-      <wsdl:input wsaw:Action="urn:getConnection" message="ns:getConnectionRequest" />
-      <wsdl:output wsaw:Action="urn:getConnectionResponse" message="ns:getConnectionResponse" />
-    </wsdl:operation>
     <wsdl:operation name="getBalances">
       <wsdl:input wsaw:Action="urn:getBalances" message="ns:getBalancesRequest" />
       <wsdl:output wsaw:Action="urn:getBalancesResponse" message="ns:getBalancesResponse" />
@@ -338,6 +129,10 @@
       <wsdl:input wsaw:Action="urn:login" message="ns:loginRequest" />
       <wsdl:output wsaw:Action="urn:loginResponse" message="ns:loginResponse" />
     </wsdl:operation>
+    <wsdl:operation name="showProfile">
+      <wsdl:input wsaw:Action="urn:showProfile" message="ns:showProfileRequest" />
+      <wsdl:output wsaw:Action="urn:showProfileResponse" message="ns:showProfileResponse" />
+    </wsdl:operation>
     <wsdl:operation name="changePassword">
       <wsdl:input wsaw:Action="urn:changePassword" message="ns:changePasswordRequest" />
       <wsdl:output wsaw:Action="urn:changePasswordResponse" message="ns:changePasswordResponse" />
@@ -345,24 +140,6 @@
   </wsdl:portType>
   <wsdl:binding name="ServicesSoap11Binding" type="ns:ServicesPortType">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="getConnector">
-      <soap:operation soapAction="urn:getConnector" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getConnection">
-      <soap:operation soapAction="urn:getConnection" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getBalances">
       <soap:operation soapAction="urn:getBalances" style="document" />
       <wsdl:input>
@@ -390,6 +167,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="showProfile">
+      <soap:operation soapAction="urn:showProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="changePassword">
       <soap:operation soapAction="urn:changePassword" style="document" />
       <wsdl:input>
@@ -402,24 +188,6 @@
   </wsdl:binding>
   <wsdl:binding name="ServicesSoap12Binding" type="ns:ServicesPortType">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="getConnector">
-      <soap12:operation soapAction="urn:getConnector" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getConnection">
-      <soap12:operation soapAction="urn:getConnection" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getBalances">
       <soap12:operation soapAction="urn:getBalances" style="document" />
       <wsdl:input>
@@ -447,6 +215,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="showProfile">
+      <soap12:operation soapAction="urn:showProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="changePassword">
       <soap12:operation soapAction="urn:changePassword" style="document" />
       <wsdl:input>
@@ -459,24 +236,6 @@
   </wsdl:binding>
   <wsdl:binding name="ServicesHttpBinding" type="ns:ServicesPortType">
     <http:binding verb="POST" />
-    <wsdl:operation name="getConnector">
-      <http:operation location="getConnector" />
-      <wsdl:input>
-        <mime:content part="parameters" type="application/xml" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="parameters" type="application/xml" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getConnection">
-      <http:operation location="getConnection" />
-      <wsdl:input>
-        <mime:content part="parameters" type="application/xml" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="parameters" type="application/xml" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getBalances">
       <http:operation location="getBalances" />
       <wsdl:input>
@@ -497,6 +256,15 @@
     </wsdl:operation>
     <wsdl:operation name="login">
       <http:operation location="login" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="showProfile">
+      <http:operation location="showProfile" />
       <wsdl:input>
         <mime:content part="parameters" type="application/xml" />
       </wsdl:input>

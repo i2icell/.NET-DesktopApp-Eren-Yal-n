@@ -28,6 +28,13 @@ namespace WpfApp1
             DataContext = new ComboBoxViewModel();
         }
 
+        static bool ValidateMail(string mail)
+        {
+            var isMail = new Regex(@"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+            return isMail.IsMatch(mail);
+        }
+
         static bool ValidateTC(string tcno)
         {
             if (tcno == null) return false;
@@ -111,9 +118,9 @@ namespace WpfApp1
                     ErrorMsgLName.Content = "";
                 }
 
-                if (String.IsNullOrEmpty(Mail.Text))
+                if (String.IsNullOrEmpty(Mail.Text) || !ValidateMail(Mail.Text))
                 {
-                    ErrorMsgMail.Content = "*Lütfen Doldurunuz";
+                    ErrorMsgMail.Content = "*Lütfen geçerli ve kullanılmamış bir mail adresi giriniz";
                 }
                 else
                 {
@@ -163,6 +170,13 @@ namespace WpfApp1
             }
 
 
+        }
+
+        private void BackBtn(object sender, RoutedEventArgs e)
+        {
+            MainWindow wd = new MainWindow();
+            Application.Current.Windows[0].Close();
+            wd.ShowDialog();
         }
     }
 }
