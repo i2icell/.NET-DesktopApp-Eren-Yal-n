@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,12 +28,13 @@ namespace WpfApp1
         {
             InitializeComponent();
             DataContext = new ComboBoxViewModel();
+
         }
 
         static bool ValidateMail(string mail)
         {
             var isMail = new Regex(@"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+                                  + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
             return isMail.IsMatch(mail);
         }
 
@@ -58,6 +61,7 @@ namespace WpfApp1
 
             return true;
         }
+
         static bool PasswordValidation(String pass)
         {
             var hasNumber = new Regex(@"[0-9]+");
@@ -65,10 +69,12 @@ namespace WpfApp1
             var hasLowerChar = new Regex(@"[a-z]+");
             var hasMinimum8Chars = new Regex(@".{8,}");
 
+
             return hasNumber.IsMatch(pass) && hasUpperChar.IsMatch(pass) && hasLowerChar.IsMatch(pass) && hasMinimum8Chars.IsMatch(pass);
         }
         private void CreateAccountBtn(object sender, RoutedEventArgs e)
         {
+            
             int index = monthCmb.SelectedIndex + 1;
             string indexStr;
             if (index < 10)
@@ -80,22 +86,18 @@ namespace WpfApp1
             }
 
             string birthday = dayCmb.Text + "-" + indexStr + "-" + yearCmb.Text;
+            
 
             UTIL.ServicesPortTypeClient client = new UTIL.ServicesPortTypeClient();
-            Console.WriteLine(FName.Text);
-            Console.WriteLine(LName.Text);
-            Console.WriteLine(PhoneNum.Text);
-            Console.WriteLine(Mail.Text);
-            Console.WriteLine(password.Password);
-            Console.WriteLine(birthday);
-            Console.WriteLine(TCNo.Text);
+
             if (client.createAccount(FName.Text, LName.Text, PhoneNum.Text, Mail.Text, password.Password, birthday, TCNo.Text) == 1)
             {
-                
-                MainWindow wd = new MainWindow();
-                Application.Current.Windows[0].Close();
+                MainPage wd = new MainPage();
+                //MainWindow wd = new MainWindow();
+                //Application.Current.Windows[0].Close();
                 wd.AccCreated.Content = "Hesabınız Oluşturuldu! Giriş Yapabilirsiniz";
-                wd.ShowDialog();
+                //wd.ShowDialog();
+                Application.Current.MainWindow.Content = wd;
             }
             else
             {
@@ -156,8 +158,7 @@ namespace WpfApp1
                 {
                     ErrorMsgTC.Content = "";
                 }
-
-
+                
                 if (String.IsNullOrEmpty(dayCmb.Text) || String.IsNullOrEmpty(monthCmb.Text) || String.IsNullOrEmpty(yearCmb.Text))
                 {
                     ErrorMsgBirthday.Content = "*Lütfen doğum tarihinizi giriniz";
@@ -166,7 +167,7 @@ namespace WpfApp1
                 {
                     ErrorMsgBirthday.Content = "";
                 }
-
+                
             }
 
 
@@ -174,9 +175,9 @@ namespace WpfApp1
 
         private void BackBtn(object sender, RoutedEventArgs e)
         {
-            MainWindow wd = new MainWindow();
-            Application.Current.Windows[0].Close();
-            wd.ShowDialog();
+
+            MainPage pg = new MainPage();
+            Application.Current.MainWindow.Content = pg;
         }
     }
 }

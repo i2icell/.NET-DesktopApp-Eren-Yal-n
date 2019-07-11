@@ -28,13 +28,12 @@ namespace WpfApp1
 
         private void exit(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Çıkış yapmak istiyor musunuz?", "Çıkış", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("Hesabınızdan çıkış yapmak istiyor musunuz?", "Çıkış", MessageBoxButton.YesNo);
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    MainWindow wd = new MainWindow();
-                    Application.Current.Windows[0].Close();
-                    wd.ShowDialog();
+                    MainPage pg = new MainPage();
+                    Application.Current.MainWindow.Content = pg;
                     break;
                 case MessageBoxResult.No:
 

@@ -30,10 +30,9 @@ namespace WpfApp1
             UTIL.ServicesPortTypeClient client = new UTIL.ServicesPortTypeClient();
             if (client.changePassword(PhoneNum.Text, TCNo.Text, newPassword.Password) == 1)
             {
-                MainWindow wd = new MainWindow();
+                MainPage wd = new MainPage();
                 wd.AccCreated.Content = "Şifre Başarıyla Değiştirildi!";
-                Application.Current.Windows[0].Close();
-                wd.ShowDialog();
+                Application.Current.MainWindow.Content = wd;
             }
             else
             {
@@ -43,9 +42,8 @@ namespace WpfApp1
 
         private void BackBtn(object sender, RoutedEventArgs e)
         {
-            MainWindow wd = new MainWindow();
-            Application.Current.Windows[0].Close();
-            wd.ShowDialog();
+            MainPage pg = new MainPage();
+            Application.Current.MainWindow.Content = pg;
         }
     }
 }

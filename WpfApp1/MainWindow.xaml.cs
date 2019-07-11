@@ -22,8 +22,11 @@ namespace WpfApp1
     {
         public MainWindow()
         {
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             System.Threading.Thread.Sleep(3000);
             InitializeComponent();
+            MainPage pg = new MainPage();
+            this.Content = pg;
         }
 
         private void toCreateAccountPage(object sender, RoutedEventArgs e)
